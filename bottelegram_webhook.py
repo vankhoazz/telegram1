@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # Xoá bất kỳ webhook cũ nào
     bot.remove_webhook()
     # Đặt webhook tới URL Render của bạn
-    bot.set_webhook(url=f"https://YOUR-RENDER-URL/{TOKEN}")
+    bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/8549676719:AAHucid-mAnzcdQRPt1AsSRSOSx65tNK-k0")
     
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
