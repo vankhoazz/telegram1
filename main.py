@@ -60,6 +60,8 @@ MA_NHIEMVU1 = [
 
 user_last_task1 = {}  # {user_id: timestamp}
 
+# Anti-spam nhiệm vụ 2 ← DÁN DÒNG NÀY VÀO ĐÂY
+user_last_task2 = {}
 # ===== Flask app =====
 app = Flask(__name__)
 
@@ -182,6 +184,7 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
