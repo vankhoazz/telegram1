@@ -142,7 +142,7 @@ def query_bot(call):
 
 @bot.message_handler(commands=['doithuong'])
 def thirdstep_bot(message):
-    bot.reply_to(message, "❌ Vui lòng hoàn thành ít nhất 2 nhiệm vụ để đổi code.")
+    bot.reply_to(message, "❌ Chờ admin add thêm code sau 24h, chúc ae thắng lớn 🎉")
 
 @bot.message_handler(commands=['help'])
 def thirdstep_bot(message):
@@ -178,6 +178,7 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
