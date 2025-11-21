@@ -71,6 +71,7 @@ def start_bot(message):
     text = (
         f"🎉🎁 CHÀO MỪNG -{message.from_user.full_name}- ĐẾN VỚI CODENETWIN! 🎁🎉\n\n"
         "Dưới đây là các lệnh bạn có thể dùng:\n"
+        "📝 /nhiemvu - Xem danh sách nhiệm vụ đang HOT \n"
         "🪄 /doithuong - Nhận giftcode random thông qua các nhiệm vụ có sẵn.\n"
         "📖 /help - Xem hướng dẫn và giải đáp thắc mắc.\n\n"
         "✨ Chúc bạn may mắn và vui vẻ khi sử dụng bot! ✨"
@@ -157,3 +158,4 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
