@@ -116,29 +116,33 @@ def query_bot(call):
         user_last_task1[user_id] = now
 
     elif call.data == "nhiemvu2":
-        # Kiểm tra thời gian giữa các lần làm nhiệm vụ (nếu cần)
+        # Kiểm tra cooldown 90 giây
         if user_id in user_last_task2:
             elapsed = now - user_last_task2[user_id]
             if elapsed < 90:
                 remaining = int(90 - elapsed)
                 bot.answer_callback_query(
                     call.id,
-                    text=f"⏳ Vui lòng đợi {remaining} giây trước khi làm Nhiệm Vụ 2",
+                    text=f"⏳ Vui lòng đợi {remaining} giây nữa nhé!",
                     show_alert=True
                 )
                 return
     
-        # Thông báo chọn nhiệm vụ
-        bot.answer_callback_query(call.id, text="Bạn đã chọn Nhiệm Vụ 2 ✅", show_alert=False)
+        # Cho làm nhiệm vụ
+        bot.answer_callback_query(call.id, "Bạn đã chọn Nhiệm Vụ 2 ✅", show_alert=False)
     
-        # Link và hướng dẫn nhiệm vụ
         link_chosen = "https://vnshares.com/g3131832708"
         text = (
             "📝 Hướng dẫn thực hiện Nhiệm Vụ 2:\n\n"
             f"1️⃣ Truy cập link: {link_chosen}\n"
             "2️⃣ Nhấn 'Xác minh' và chờ 5 giây\n"
-            "3️⃣ Hoàn tất nhiệm vụ 🎉"
+            "3️⃣ Hoàn tất nhiệm vụ 🎉\n\n"
+            "Sau khi xong bạn sẽ được cộng điểm tự động!"
         )
+        bot.send_message(call.message.chat.id, text)
+    
+        # LƯU LẠI THỜI GIAN ĐỂ TÍNH COOLDOWN
+        user_last_task2[user_id] = now
 
 @bot.message_handler(commands=['doithuong'])
 def thirdstep_bot(message):
@@ -178,6 +182,7 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
