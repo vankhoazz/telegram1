@@ -133,7 +133,7 @@ def query_bot(call):
         # Cho làm nhiệm vụ
         bot.answer_callback_query(call.id, "Bạn đã chọn Nhiệm Vụ 2 ✅", show_alert=False)
     
-        link_chosen = "https://vnshares.com/g3131832708"
+        link_chosen = "https://vnshares.com/g7092887310"
         text = (
             "📝 Hướng dẫn thực hiện Nhiệm Vụ 2:\n\n"
             f"1️⃣ Truy cập link: {link_chosen}\n"
@@ -184,6 +184,7 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
