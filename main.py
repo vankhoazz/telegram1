@@ -40,22 +40,7 @@ inline_keyboard.add(button1, button2)
 
 # ===== Danh sách mã nhiệm vụ 1 =====
 MA_NHIEMVU1 = [
-    "869949509369",
-    "865846957325",
-    "865687404322",
-    "869451348757",
-    "861327734371",
-    "862847379139",
-    "869873460440",
-    "869142727421",
-    "868700995822",
-    "865367113247",
-    "867157217526",
-    "862758227609",
-    "863868586275",
-    "864082200631",
-    "865119726753",
-    "865363029118",
+    "862736101486",
 ]
 
 user_last_task1 = {}  # {user_id: timestamp}
@@ -133,7 +118,7 @@ def query_bot(call):
         # Cho làm nhiệm vụ
         bot.answer_callback_query(call.id, "Bạn đã chọn Nhiệm Vụ 2 ✅", show_alert=False)
     
-        link_chosen = "https://vnshares.com/g7092887310"
+        link_chosen = "https://bit.ly/4iqYOme"
         text = (
             "📝 Hướng dẫn thực hiện Nhiệm Vụ 2:\n\n"
             f"1️⃣ Truy cập link: {link_chosen}\n"
@@ -184,6 +169,7 @@ if __name__ == "__main__":
     bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
     # Chạy Flask
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
