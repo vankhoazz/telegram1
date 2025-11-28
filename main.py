@@ -161,14 +161,25 @@ def show_users(message):
 def final_bot(message):
     bot.send_message(message.chat.id, "⚠️ Yêu cầu không hợp lệ! Vui lòng chọn lại một tùy chọn hợp lệ.")
 
+# ===== Endpoint để UptimeRobot ping (giữ bot luôn awake) =====
+@app.route("/")
+def home():
+    return "Bot đang chạy 24/7 trên Render!", 200  # <<< MỚI THÊM
+
+@app.route("/health")
+def health():
+    return "OK", 200  # <<< MỚI THÊM
+
 # ===== Chạy Flask =====
 if __name__ == "__main__":
     # Xoá webhook cũ
     bot.remove_webhook()
-    # Đặt webhook tới URL Render của bạn
-    bot.set_webhook(url=f"https://telegram-4-q1wt.onrender.com/{TOKEN}")
-    # Chạy Flask
+    time.sleep(2)  # <<< MỚI THÊM: đợi tí cho chắc
+    # Đặt webhook mới (dùng đúng tên service hiện tại của bạn)
+    bot.set_webhook(url=f"https://telegram-webhook-9s6d.onrender.com/{TOKEN}")  # <<< SỬA TÊN SERVICE Ở ĐÂY
+    print("Webhook đã được set thành công!")
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
